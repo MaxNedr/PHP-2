@@ -2,6 +2,8 @@
 
 //require 'User.php';
 require 'Student.php';
+require 'Product.php';
+require 'Men_shoes.php';
 
 $john = new User('John');
 //$john->password = '123123';
@@ -10,7 +12,7 @@ $john->userType = User::USER_TYPE_ADMIN;
 
 $artur = new User('Artur');
 //$john->login = 'John';
-$john->showHello();
+//$john->showHello();
 //$artur->showHello();
 //var_dump($john);
 //print_r($john);
@@ -24,4 +26,21 @@ $john->showHello();
 //User::showCounter();
 
 $testStudent = new Student('Jimmy', 10);
-$testStudent->showHello();
+//$testStudent->showHello();
+
+$item = new Product();
+$item->name = "Новый товар";
+$item->category = "Новая категория";
+$item->quantity = 2;
+$item->price = 50;
+$item->render();
+
+$shoes = new Men_shoes();
+$shoes->quantity = 4;
+$shoes->name = "Ботинки";
+$shoes->price = 250;
+$shoes->category = "Зимняя обувь";
+$shoes->color = 'red';
+$shoes->material = "Human skin";
+$shoes->size = 45;
+$shoes->show();
