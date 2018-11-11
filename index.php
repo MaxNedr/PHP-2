@@ -28,19 +28,17 @@ $artur = new User('Artur');
 $testStudent = new Student('Jimmy', 10);
 //$testStudent->showHello();
 
-$item = new Product();
-$item->name = "Новый товар";
+$item = new Product('Новый товар');
 $item->category = "Новая категория";
 $item->quantity = 2;
 $item->price = 50;
 $item->render();
 
-$shoes = new Men_shoes();
+$shoes = new Men_shoes('Ботинки','red');
 $shoes->quantity = 4;
-$shoes->name = "Ботинки";
 $shoes->price = 250;
 $shoes->category = "Зимняя обувь";
-$shoes->color = 'red';
 $shoes->material = "Human skin";
 $shoes->size = 45;
 $shoes->show();
+

@@ -9,12 +9,17 @@
 
 class Product
 {
+
     public $name;
     public $price;
     public $id;
     public $category;
     public $quantity;
+    public function __construct(string $name)
+    {
+        $this->name = $name;
 
+    }
     function render(){
         echo "Имя $this->name цена: $this->price из категории $this->category на складе в количестве $this->quantity";
     }
