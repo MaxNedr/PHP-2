@@ -28,7 +28,7 @@ $artur = new User('Artur');
 $testStudent = new Student('Jimmy', 10);
 //$testStudent->showHello();
 
-$item = new Product('Новый товар');
+$item = new Products('Новый товар');
 $item->category = "Новая категория";
 $item->quantity = 2;
 $item->price = 50;
