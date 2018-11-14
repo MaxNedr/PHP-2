@@ -15,7 +15,7 @@ abstract class Item
     public function __construct( string $name)
     {
         $this->name = $name;
-        $this->price = 100;
+
     }
 
     public function priceCalculation()
@@ -25,7 +25,6 @@ abstract class Item
 
     public function proceeds($count)
     {
-        $message = 'Выручка составила: ';
-        return $message . ($this->priceCalculation() * $count);
+        return 'Выручка составила: ' . ($this->priceCalculation() * $count);
     }
 }
