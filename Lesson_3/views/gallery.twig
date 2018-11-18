@@ -1,0 +1,7 @@
+<h3> Gallery </h3>
+
+{% for img in images %}
+    <a href="{{ img.url }}" target="_blank">
+        <img src="{{ img.url }}" alt="{{ img.name }}" name="{{ img.name }}" style="width: 200px;">
+    </a>
+{% endfor %}

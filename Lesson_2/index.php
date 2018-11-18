@@ -10,3 +10,4 @@ echo $obj2->proceeds(5) ."\n";
 echo $obj3->proceeds(4.5) ."\n";
 
 ?>
+
