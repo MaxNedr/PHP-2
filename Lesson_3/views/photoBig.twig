@@ -1,0 +1,6 @@
+<h3> One picture </h3>
+
+{% for im in imgs %}
+    <img src="{{ im.url }}" alt="{{ im.name }}" name="{{ im.name }}" style="max-width: 75%;">
+{% endfor %}
+

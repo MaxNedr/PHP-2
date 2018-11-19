@@ -31,5 +31,12 @@ $imagesFromDb = getItemArray("select * from images");
 $gallery = new Page('gallery');
 echo $gallery->render(
    ['images'=>$imagesFromDb]
-
 );
+
+
+if(isset($_GET['id'])){
+    $onePicture = getItem("select * from images where id={$_GET['id']}");
+    $photoBig = new Page('photoBig');
+    echo $photoBig->render(['imgs'=>[$onePicture]]);
+    var_dump($onePicture);
+}
