@@ -38,5 +38,4 @@ if(isset($_GET['id'])){
     $onePicture = getItem("select * from images where id={$_GET['id']}");
     $photoBig = new Page('photoBig');
     echo $photoBig->render(['imgs'=>[$onePicture]]);
-    var_dump($onePicture);
 }
