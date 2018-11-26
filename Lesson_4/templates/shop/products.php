@@ -1,6 +1,6 @@
 <h1>Товары в категории</h1>
 
-<ul class="list-group">
+<ul class="list-group" id="goods">
 
 
     <?php foreach ($prods as $product): ?>
@@ -22,7 +22,7 @@
 
     <?php endforeach; ?>
 </ul>
-<a class="btn btn-primary mb-1 d-inline-block" href="../shop/category.php?action=view&id=<?php echo $id ?>&max=<?php echo $max ?>"  name="next" >More</a>
+<a class="btn btn-primary mb-1 d-inline-block" id="next_button" name="next" >More</a>
 
 <?php if (isAdmin()): ?>
     <div class="card mt-4">
@@ -56,4 +56,6 @@
 <?php endif ?>
 
 <script defer src="../js/delete_product.js"></script>
+<script defer src="../js/ajax.js"></script>
 
+<!--href="../shop/category.php?action=view&id=<?php /*echo $id */?>&max=<?php /*echo $max */?>"-->

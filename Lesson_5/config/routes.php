@@ -6,6 +6,7 @@
  */
 
 use app\controllers\HomeController;
+use app\controllers\LoginController;
 
 /**
  * Настройки маршрутов приложения
@@ -16,6 +17,7 @@ return [
 
         '/' => [HomeController::class, 'page'],
         'home/{name}' => [HomeController::class, 'hello'],
-        'reg' => [HomeController::class, 'reg']
+        'registration' => [LoginController::class, 'login'],
+        'account' => [LoginController::class, 'account']
     ]
 ];

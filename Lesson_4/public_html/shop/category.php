@@ -22,20 +22,24 @@ function routeIndex()
 function routeView()
 {
     $id = $_GET['id'];
+    $page = $_GET['page'];
+    $limit = $_GET['limit'];
 
-    if (isset($_GET['max'])) {
+    if (isset($_GET['limit'])) {
         $max = $_GET['max'];
         $max += 25;
         var_dump($_GET['max']);
         $prods = getItemArray(
-            "select * from product where category_id={$id} limit 0,{$max}"
+            "select * from product where category_id={$id} limit 0,{$limit}"
         );
 
     } else {
+        $page = 1;
+        $limit = 25;
         $max = 25;
         var_dump($max);
         $prods = getItemArray(
-            "select * from product where category_id={$id} limit 0,{$max}");
+            "select * from product where category_id={$id} limit 0,{$limit}");
     }
 
 

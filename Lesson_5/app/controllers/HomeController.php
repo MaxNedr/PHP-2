@@ -25,9 +25,6 @@ class HomeController extends Controller
     {
         return $this->render('index');
     }
-    public function  reg(){
 
-        return $this->render('registration');
 
-    }
 }
