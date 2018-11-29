@@ -1,0 +1,21 @@
+{
+    "name": "user/lesson_6",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "NedrNout",
+            "email": "maxim.nedozrelov@ya.ru"
+        }
+    ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/",
+      "core\\": "core/"
+    }
+  },
+  "require": {
+    "twig/twig": "^2.0",
+    "doctrine/dbal": "^2.8",
+    "php-di/php-di": "^6.0"
+  }
+}
