@@ -24,5 +24,6 @@ return [
 
         'shop' => [ShopController::class, 'index'],
         'shop/{id}' => [ShopController::class, 'show'],
+        'product/{id}' => [ShopController::class, 'product'],
     ],
 ];

@@ -39,5 +39,14 @@ class ShopController extends Controller
 
         ]);
     }
+    public function product($id)
+    {
+        // просмотр одной
+        $product = Shop_product::findById($id);
 
+        return $this->render('product', [
+            'product' => $product,
+
+        ]);
+    }
 }
