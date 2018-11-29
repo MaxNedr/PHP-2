@@ -9,14 +9,12 @@ namespace app\controllers;
 
 
 use app\models\Shop_category;
+use app\models\Shop_product;
 use core\base\Controller;
 
 class ShopController extends Controller
 {
-    /**
-     * Просмотр списка всех страниц сайта
-     * @return string
-     */
+
     public function index()
     {
         $pages = Shop_category::all();
@@ -26,43 +24,20 @@ class ShopController extends Controller
         ]);
     }
 
-    /**
-     * Просмотр выбранной страницы
-     *
-     * @param $id
-     *
-     * @return string
-     */
+
     public function show($id)
     {
         // просмотр одной
         $page = Shop_category::findById($id);
+        $product = Shop_product::all(Shop_product::find()
+            ->where('shop_category_id= :id')
+            ->setParameter('id',$id ));
 
         return $this->render('view', [
-            'shop' => $page,
+            'shops' => $page,
+            'product' => $product,
+
         ]);
     }
 
-    /**
-     * Добавление новой страницы
-     */
-   /* public function add()
-    {
-        // создание записи
-        $page = new Shop();
-
-        if ($this->request->isPost()) {
-            if ($page->load($this->request->post())) {
-                $page->save();
-
-                $this->request->redirect('shop/' . $page->id);
-            } else {
-                $page->addError('title', 'Что-то пошло не так');
-            }
-        }
-
-        return $this->render('form', [
-            'page' => $page,
-        ]);
-    }*/
 }

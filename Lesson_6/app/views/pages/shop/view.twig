@@ -2,10 +2,17 @@
 
 {% block content %}
 
-    <a href="/shop">Назад</a>
+    <a href="shop">Назад</a>
 
-    <h2>Заголовок: {{ shop.id }}</h2>
+    <h2> В категории {{ shop.name }} </h2>
 
-    <p>Контент: {{ shop.name }}</p>
+    {% for prod in product %}
+
+        <a href="#">{{ prod.name }}</a>
+        <p>{{ prod.price }}</p>
+        <p>{{ prod.description }}</p>
+        <p>{{ prod.quantity }}</p>
+
+    {% endfor %}
 
 {% endblock %}

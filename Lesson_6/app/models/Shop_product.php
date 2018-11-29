@@ -19,11 +19,12 @@ use core\base\ActiveRecord;
  * @property int $id
  * @property string $name
  * @property string $description
+ * @property float $price
+ * @property int $quantity
  * @property int $status
- * @property int $parent_id
  *
  */
-class Shop_category extends ActiveRecord
+class Shop_product extends ActiveRecord
 {
 
 }

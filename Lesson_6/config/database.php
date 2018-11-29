@@ -15,5 +15,6 @@ return [
         'user' => 'root',
         'password' => '',
         'dbname' => 'geekbrains',
+        'charset' => 'utf8',
     ],
 ];
