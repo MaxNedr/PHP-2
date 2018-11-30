@@ -1,16 +1,20 @@
 {% extends '/layouts/default.twig' %}
 
 {% block content %}
+<div class="container">
+    {% for elem in orders %}
+    <div class="card " style="width: 18rem;">
 
-    <h4>индекс ордер</h4>
-    <ul>
-    {% for elem in order %}
-        <li>
-        <p>{{ elem.id }}</p>
-        <p>{{ elem.created_at }}</p>
-        <p>{{ elem.comment }}</p>
-        <p>{{ elem.order_status_id }}</p>
-        </li>
+        <div class="card-body">
+            <h5 class="card-title">Заказ от {{ elem.created_at }} </h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ elem.id }}  </h6>
+            <p class="card-text">{{ elem.comment }}</p>
+            <p class="card-text">{{ elem.order_status_id }}</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+
+    </div>
     {% endfor %}
-    </ul>
+</div>
 {% endblock %}
