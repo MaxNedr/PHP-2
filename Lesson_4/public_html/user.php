@@ -53,7 +53,7 @@ function routeHome()
 function routeOrder()
 {
     if (isAdmin()) {
-        echo render('shop/order');
+        echo render('shop/orders');
     }
 
 }
@@ -93,7 +93,7 @@ function routeDelete_order()
 {
 
     $id = $_GET['id'];
-    $sql = "delete from `order` where id={$id}";
+    $sql = "delete from orders where id={$id}";
     execute($sql);
 
 }

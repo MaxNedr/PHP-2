@@ -6,6 +6,7 @@
  */
 
 
+use app\controllers\OrdersController;
 use app\controllers\PageController;
 use app\controllers\ShopController;
 use app\controllers\SiteController;
@@ -25,5 +26,9 @@ return [
         'shop' => [ShopController::class, 'index'],
         'shop/{id}' => [ShopController::class, 'show'],
         'product/{id}' => [ShopController::class, 'product'],
+
+        'orders'=>[OrdersController::class, 'index'],
+        'orders/{id}'=>[OrdersController::class, 'show'],
+        'orders/new'=>[OrdersController::class, 'add'],
     ],
 ];

@@ -100,7 +100,7 @@ function routeOrder()
         $userID = $_SESSION['auth']['id'];
 
         if (isset($_SESSION['cart'])) {
-            $orderSQL = "insert into `order` (user_id) values ('{$userID}')";
+            $orderSQL = "insert into orders (user_id) values ('{$userID}')";
 
             if (execute($orderSQL)) {
                 $orderId = lastInsertedId();

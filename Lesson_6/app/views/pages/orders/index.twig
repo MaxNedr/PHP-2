@@ -1,0 +1,16 @@
+{% extends '/layouts/default.twig' %}
+
+{% block content %}
+
+    <h4>индекс ордер</h4>
+    <ul>
+    {% for elem in order %}
+        <li>
+        <p>{{ elem.id }}</p>
+        <p>{{ elem.created_at }}</p>
+        <p>{{ elem.comment }}</p>
+        <p>{{ elem.order_status_id }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

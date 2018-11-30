@@ -3,7 +3,7 @@ $userName = $_SESSION['auth']['login'];
 ?>
 
 <?php
-$ord = getItemArray("select * from users, `order` where order.user_id=users.id && users.login='{$userName}'");
+$ord = getItemArray("select * from users, orders where orders.user_id=users.id && users.login='{$userName}'");
 
 ?>
 <?php if(empty($ord)): ?>

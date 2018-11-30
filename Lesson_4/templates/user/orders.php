@@ -1,5 +1,5 @@
 <?php
-$ord = getItemArray("select * from users, `order` where order.user_id=users.id");
+$ord = getItemArray("select * from users, orders where orders.user_id=users.id");
 
 
 ?>
