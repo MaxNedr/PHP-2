@@ -1,7 +1,27 @@
 {% extends '/layouts/default.twig' %}
 
 {% block content %}
+    <div class="container">
+            <div class="card " style="width: 18rem;">
 
-    <h4>Вью ордер</h4>
+                <div class="card-body">
+                    <h5 class="card-title">Заказ от {{ orders.created_at }} </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ orders.id }}  </h6>
+                    <p class="card-text">{{ orders.comment }}</p>
+                    <p class="card-text">{{ orders.order_status_id }}</p>
+                    {% for elem in product %}
+                        <p class="card-text">{{ elem.price }} $</p>
+                        <p class="card-text">{{ elem.quantity }} pc</p>
+                    {% endfor %}
+                    {% for elem in prod %}
+                        <p class="card-text">{{ elem.name }} </p>
+                        <p class="card-text">{{ elem.description }}</p>
+                        <p class="card-text">{{ elem.status }}</p>
+                    {% endfor %}
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
 
+            </div>
+    </div>
 {% endblock %}

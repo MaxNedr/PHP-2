@@ -9,7 +9,9 @@
 namespace app\controllers;
 
 
+use app\models\Order_item;
 use app\models\Orders;
+use app\models\Shop_product;
 use core\base\Controller;
 
 class OrdersController extends Controller
@@ -28,8 +30,23 @@ class OrdersController extends Controller
         return $this->render('index', []);
     }
 
-    public function show()
+    public function show($id)
     {
-        return $this->render('view', []);
+        // просмотр одной
+        $order = Orders::findById($id);
+        $product = Order_item::all(Order_item::find()
+            ->where('order_id= :id')
+            ->setParameter('id', $id));
+        $prod = Shop_product::all(Shop_product::find()
+            ->where('id= :id')
+            ->setParameter('id', $id));
+
+        return $this->render('view', [
+            'orders' => $order,
+            'product' => $product,
+            'prod' => $prod,
+
+        ]);
+
     }
 }
