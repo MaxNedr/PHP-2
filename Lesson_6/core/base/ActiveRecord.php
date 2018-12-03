@@ -33,13 +33,13 @@ abstract class ActiveRecord extends Model
      */
     public static function findById($id)
     {
-        $query = self::find()
-            ->where(self::$primaryKey . " = :id")
+        $query = static::find()
+            ->where(static::$primaryKey . " = :id")
             ->setParameter(':id', $id);
 
         // select * from user_role where id = $id
 
-        return self::one($query);
+        return static::one($query);
     }
 
     /**
@@ -48,10 +48,10 @@ abstract class ActiveRecord extends Model
      */
     public static function find()
     {
-        return self::getConnection()
+        return static::getConnection()
             ->createQueryBuilder()
             ->select('*')
-            ->from(self::tableName());
+            ->from(static::tableName());
     }
 
     /**
@@ -92,10 +92,10 @@ abstract class ActiveRecord extends Model
     public static function one(QueryBuilder $query = null)
     {
         if (is_null($query)) {
-            $query = self::find();
+            $query = static::find();
         }
 
-        $query = self::prepareToFetch($query);
+        $query = static::prepareToFetch($query);
 
         return $query->fetch();
     }
@@ -125,10 +125,10 @@ abstract class ActiveRecord extends Model
     public static function all(QueryBuilder $query = null)
     {
         if (is_null($query)) {
-            $query = self::find();
+            $query = static::find();
         }
 
-        $query = self::prepareToFetch($query);
+        $query = static::prepareToFetch($query);
 
         return $query->fetchAll();
     }
@@ -151,22 +151,22 @@ abstract class ActiveRecord extends Model
                 }
             }
 
-            unset($attributes[self::$primaryKey]);
+            unset($attributes[static::$primaryKey]);
 
             if ($this->isNewRecord()) {
                 $result = (bool)$connection->insert(
-                    self::tableName(),
+                    static::tableName(),
                     $attributes
                 );
 
                 if ($result) {
-                    $this->{self::$primaryKey} = $connection->lastInsertId();
+                    $this->{static::$primaryKey} = $connection->lastInsertId();
                 }
             } else {
                 $result = (bool)$connection->update(
-                    self::tableName(),
+                    static::tableName(),
                     $attributes,
-                    [self::$primaryKey => $this->getPrimaryKeyValue()]
+                    [static::$primaryKey => $this->getPrimaryKeyValue()]
                 );
             }
 
@@ -205,7 +205,7 @@ abstract class ActiveRecord extends Model
      */
     private function isNewRecord()
     {
-        return !isset($this->{self::$primaryKey});
+        return !isset($this->{static::$primaryKey});
     }
 
     /**
@@ -214,7 +214,7 @@ abstract class ActiveRecord extends Model
      */
     private function getPrimaryKeyValue()
     {
-        return ($this->isNewRecord()) ? null : $this->{self::$primaryKey};
+        return ($this->isNewRecord()) ? null : $this->{static::$primaryKey};
     }
 
     /**
@@ -229,8 +229,8 @@ abstract class ActiveRecord extends Model
             $connection = $this->getConnection();
 
             return (bool)$connection->delete(
-                self::tableName(),
-                [self::$primaryKey => $this->getPrimaryKeyValue()]
+                static::tableName(),
+                [static::$primaryKey => $this->getPrimaryKeyValue()]
             );
         }
 

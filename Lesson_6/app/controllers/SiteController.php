@@ -7,33 +7,21 @@
 
 namespace app\controllers;
 
-use app\models\User;
 use core\base\Controller;
 
 class SiteController extends Controller
 {
     public function index()
     {
-        $user = new User();
-
-        if ($this->request->isPost()) {
-            if ($user->load($this->request->post())) {
-                $user->save();
-
-                var_dump($user);
-            } else {
-                echo 'NOT LOADED';
-            }
-        }
-
-        $regUser = User::all(
-            User::find()
-                ->where('id = :id')
-                ->setParameter(':id', 2)
-        );
-
-        var_dump($regUser);
-
         return $this->render('index');
+    }
+
+    public function postTest()
+    {
+        if ($this->request->isPost()) {
+            return json_encode([
+                'message' => 'OK',
+            ]);
+        }
     }
 }
